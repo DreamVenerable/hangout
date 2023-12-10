@@ -14,6 +14,7 @@ consumer.subscriptions.create("MessageChannel", {
     const messageDisplay = document.querySelector('#message-display')
     messageDisplay.insertAdjacentHTML('beforeend', this.template(data))
     this.clearInputField()
+    this.scrollToBottom()
   },
 
   template(data) {
@@ -31,6 +32,13 @@ consumer.subscriptions.create("MessageChannel", {
     const messageInput = document.querySelector('#message-input');
     if (messageInput) {
       messageInput.value = '';
+    }
+  },
+
+  scrollToBottom() {
+    const messageDisplay = document.querySelector('#message-display');
+    if (messageDisplay) {
+      messageDisplay.scrollTop = messageDisplay.scrollHeight;
     }
   }
 });
