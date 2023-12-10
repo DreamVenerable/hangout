@@ -2,7 +2,7 @@ import consumer from "channels/consumer"
 
 consumer.subscriptions.create("MessageChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
+    this.scrollToBottom()
   },
 
   disconnected() {
